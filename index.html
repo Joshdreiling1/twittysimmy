@@ -17,33 +17,50 @@
   </header>
   <article>
     <nav>
-      <a>All Questions</a>
-      <a>Easy</a>
-      <a>Medium</a>
-      <a>Hard</a>
+      <a ng-click="getQuestions()">All Questions</a>
+      <a ng-click="getByDifficulty(1)">Easy</a>
+      <a ng-click="getByDifficulty(2)">Medium</a>
+      <a ng-click="getByDifficulty(3)">Hard</a>
       <a>Search by Animal</a>
     </nav>
     <div class="search">
       <input type="text" placeholder="Animal to search by">
     </div>
 
-    <!-- Questions go here -->
+   <!-- Questions go here -->
+    <div class="question-wrapper question-wrapper:hover" ng-repeat="question in questions" >
+      <h3>This is the question here for you to answer</h3>
+      <div class="gear gear:hover">
+        <img class="gear" src="./styles/assets/gear.svg">
+      </div>
+      <div ng-switch={{question.difficulty}}>
+          <span class="green" ng-switch-when='1'>easy</span>
+          <span class="yellow" ng-switch-when='2'>medium</span>
+          <span class="red" ng-switch-when='3'>hard</span>
+      </div>
+      <ul>
+        <li>{{question.options[1]}}</li>
+        <li>{{question.options[2]}}</li>
+        <li>{{question.options[3]}}</li>
+        <li>{{question.options[4]}}</li>
+      </ul>
+    </div>
 
-  </article>
+ </article>
 
-  <div class="modal">
+ <div class="modal">
     <form>
       <h4 class="close">X</h4>
-      <span>Question</span><input type="text" ng-model="<!-- Question -->">
-      <span>Animal it's about</span><input type="text" ng-model="<!-- Animal -->">
+      <!-- <span>Question</span><input type="text" ng-model="">
+      <span>Animal it's about</span><input type="text" ng-model="">
       <span>Difficulty</span>
       <div class="range">
-        <input type="range" min="1" max="3" ng-model="<!-- Difficulty -->">
+        <input type="range" min="1" max="3" ng-model=""> -->
 
-        <h5>{{newQuestion.difficulty}}</h5>
-      </div>
+       <!-- <h5>{{newQuestion.difficulty}}</h5>
+      </div>  -->
       <h4>Options</h4>
-      <div>
+      <!-- <div>
         <input type="radio" ng-model="" value="1">
         <input type="text" ng-model="">
       </div>
@@ -58,33 +75,36 @@
       <div>
         <input type="radio" ng-model="" value="4">
         <input type="text" ng-model="">
-      </div>
+      </div> -->
 
-      <!--Add question buttons-->
+     <!--Add question buttons-->
       <div class="buttons">
         <button class="green">Save Question</button>
         <button>Cancel</button>
       </div>
 
-      <!--Edit & Delete question buttons-->
+     <!--Edit & Delete question buttons-->
       <div class="buttons">
         <button class="red">Delete Question</button>
         <button class="green">Save Changes</button>
         <button>Cancel</button>
       </div>
 
-    </form>
+   </form>
   </div>
 
 
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
-  <script src="app/app.js" charset="utf-8"></script>
-  <script src="app</script"></script>
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
+  <!-- <script src="app/app.js" charset="utf-8"></script> -->
+  <script src="app/app.js"></script>
   <script src="app/questions.js"></script>
-  <script src="app/mainCtrl.js>"></script>"
+  <script src="app/mainCtrl.js"></script>"
 </body>
 
 </html>
